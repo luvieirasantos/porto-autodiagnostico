@@ -1,18 +1,26 @@
 "use client"
+import { useRouter } from "next/navigation"
 
 export default function Prontuario() {
+  const router = useRouter()
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    router.push("/diagnostico")
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 font-inter">
       {/* Formulário principal */}
       <div className="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-sm">
-        {/* Lado esquerdo com background-image */}
+        {/* Lado esquerdo com background image */}
         <div
           className="md:w-1/2 p-6 flex flex-col justify-center items-start text-left text-white"
           style={{
             backgroundImage: "url('/formulario-bg.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            minHeight: "300px"
+            minHeight: "300px",
           }}
         >
           <h2 className="text-2xl font-bold mb-2">Faça seu formulário</h2>
@@ -22,8 +30,8 @@ export default function Prontuario() {
           </p>
         </div>
 
-        {/* Lado direito: perguntas */}
-        <form className="md:w-1/2 bg-white p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Perguntas (formulário) */}
+        <form onSubmit={handleSubmit} className="md:w-1/2 bg-white p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             "Está escutando ruídos vindos do veículo ao passar por lombadas e buracos?",
             "Está escutando um barulho contínuo nas rodas?",
@@ -46,7 +54,7 @@ export default function Prontuario() {
           <div className="col-span-full flex justify-center mt-2">
             <button
               type="submit"
-              className="bg-[#009CFF] hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md"
+              className="bg-[#009CFF] hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md cursor-pointer transition-colors focus:outline-none"
             >
               Enviar formulário
             </button>
@@ -54,7 +62,7 @@ export default function Prontuario() {
         </form>
       </div>
 
-      {/* Explicação abaixo */}
+      {/* Seção "Sobre o formulário" */}
       <div className="mt-10 text-center max-w-2xl mx-auto">
         <h3 className="text-lg font-bold mb-2 font-inter">Sobre o formulário</h3>
         <p className="text-sm font-normal text-gray-700 leading-relaxed">
