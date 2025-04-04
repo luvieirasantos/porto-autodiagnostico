@@ -5,12 +5,20 @@ export default function Prontuario() {
     <div className="max-w-6xl mx-auto px-4 py-8 font-inter">
       {/* Formulário principal */}
       <div className="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-sm">
-        {/* Lado esquerdo: imagem e texto */}
-        <div className="bg-[#F5F5F5] md:w-1/2 p-6 flex flex-col justify-center items-start text-left">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Faça seu formulário</h2>
-          <p className="text-base font-medium text-gray-700">
-            Seu formulário é <span className="text-[#009CFF] font-semibold">importante</span> para que o nosso <br />
-            <span className="text-[#009CFF] font-semibold">pré diagnóstico</span> seja feito!
+        {/* Lado esquerdo com background-image */}
+        <div
+          className="md:w-1/2 p-6 flex flex-col justify-center items-start text-left text-white"
+          style={{
+            backgroundImage: "url('/formulario-bg.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "300px"
+          }}
+        >
+          <h2 className="text-2xl font-bold mb-2">Faça seu formulário</h2>
+          <p className="text-base font-medium leading-relaxed">
+            Seu formulário é <span className="text-[#009CFF] font-semibold">importante</span> <br />
+            para que o nosso <span className="text-[#009CFF] font-semibold">pré diagnóstico</span> seja feito!
           </p>
         </div>
 
